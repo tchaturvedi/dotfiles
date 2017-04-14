@@ -1,0 +1,8 @@
+
+export ZSH=$ZSHA_BASE/zplug/repos/robbyrussell/oh-my-zsh
+
+CASE_SENSITIVE='false'
+
+plugins=(common-aliases ubuntu git)
+
+source $ZSH/oh-my-zsh.sh

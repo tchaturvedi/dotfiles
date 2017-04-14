@@ -1,0 +1,16 @@
+export WORKON_HOME="~/.virtualenvs/"
+export PROJECT_HOME="~/Workspace/personal/py"
+#source /usr/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# RVM
+#source /home/tushar/.rvm/scripts/rvm
+
+# Texlive
+export PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
+export PATH=$PATH:/usr/local/go/bin
+
+# Golang
+export GOPATH=~/Workspace/personal/go/
+export PATH=$PATH:$GOPATH/bin

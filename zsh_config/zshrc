@@ -1,0 +1,24 @@
+export ZSHA_BASE=$HOME/dotfiles/zsh_config
+
+ZPLUG_HOME=$ZSHA_BASE/zplug
+
+if [[ ! -d $ZPLUG_HOME ]]; then
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+
+source $ZSHA_BASE/config/aliases
+source $ZSHA_BASE/config/env_variables
+source $ZSHA_BASE/config/setopts
+source $ZSHA_BASE/config/omz_config
+
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-history-substring-search"
+
+# Supports oh-my-zsh plugins and the like
+zplug "plugins/git",   from:oh-my-zsh
+
+zplug 'denysdovhan/spaceship-zsh-theme', as:theme
+
+# Then, source plugins and add commands to $PATH
+zplug load

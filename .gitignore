@@ -1,0 +1,9 @@
+# NVIM
+
+plugged/
+backup/
+undodir/
+
+# ZSH
+zplug
+.gitmodules
