@@ -43,19 +43,7 @@ Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
 Plug 'wavded/vim-stylus'
 
 " javascript
-Plug 'guileen/vim-node-dict'
-Plug 'moll/vim-node'
-Plug 'othree/yajs.vim'
-" Plug 'othree/javascript-libraries-syntax.vim'
-Plug '1995eaton/vim-better-javascript-completion'
-Plug 'gavocanov/vim-js-indent'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
 
 " others
 Plug 'ciaranm/detectindent'
@@ -65,6 +53,9 @@ Plug 'othree/csscomplete.vim'
 Plug 'groenewege/vim-less'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sukima/xmledit'
+Plug 'vim-scripts/ScrollColors'
+Plug 'reedes/vim-thematic'
+Plug 'scrooloose/nerdcommenter'
 
 " text objects
 Plug 'wellle/targets.vim'
@@ -77,5 +68,6 @@ Plug 'thinca/vim-textobj-function-javascript'
 
 " golang
 Plug 'fatih/vim-go'
+
 
 call plug#end()

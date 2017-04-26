@@ -2,5 +2,7 @@ alias omz="vim ~/.zshrc"
 alias reload="echo 'reloading zshrc' && source ~/.zshrc"
 alias psgrep="ps -ef | grep"
 alias vim=nvim
+alias pip=pip3
+
 alias gobi="go build && go install"
 alias cdgo="cd ~/Workspace/personal/go/src/github.com/tchaturvedi"
