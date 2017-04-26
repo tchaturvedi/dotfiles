@@ -13,6 +13,9 @@ source $ZSHA_BASE/config/omz_config
 
 source $ZPLUG_HOME/init.zsh
 
+# Allow zplug self management
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 zplug "zsh-users/zsh-history-substring-search"
 
 # Supports oh-my-zsh plugins and the like
