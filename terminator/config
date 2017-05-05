@@ -1,0 +1,47 @@
+[global_config]
+  always_split_with_profile = True
+  borderless = True
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = system
+  handle_size = 1
+  suppress_multiple_term_dialog = True
+  title_font = Fira Mono 11
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#00ca6b"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = solarized-dark
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    cursor_shape = ibeam
+    font = Fira Mono 11
+    use_system_font = False
+  [[solarized-dark]]
+    background_color = "#002b36"
+    background_image = None
+    cursor_color = "#eee8d5"
+    cursor_shape = ibeam
+    font = Fira Mono 11
+    foreground_color = "#eee8d5"
+    palette = "#073642:#dc322f:#859900:#002b36:#268bd2:#d33682:#2aa198:#eee8d5:#586e75:#cb4b16:#586e75:#b58900:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollbar_position = hidden
+    use_system_font = False
+  [[solarized-light]]
+    background_color = "#eee8d5"
+    background_image = None
+    cursor_color = "#002b36"
+    font = Fira Mono 11
+    foreground_color = "#002b36"
+    palette = "#073642:#dc322f:#859900:#fdf6e3:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    scrollbar_position = hidden
+    use_system_font = False
