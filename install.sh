@@ -10,8 +10,10 @@ cd $HOME
 
 echo "Linking zshrc"
 ln -s $HOME/.dotfiles/zsh_config/zshrc .zshrc
+ln -s $HOME/.dotfiles/gitconfig .gitconfig
 
 cd $HOME/.config
+`pwd`
 
 echo "Linking application configurations"
 ln -s $HOME/.dotfiles/terminator terminator
