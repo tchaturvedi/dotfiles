@@ -21,9 +21,12 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#002b36"
     background_image = None
     cursor_shape = ibeam
-    font = Fira Mono 11
+    font = Source Code Pro Medium 12
+    foreground_color = "#839496"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     use_system_font = False
   [[solarized-dark]]
     background_color = "#002b36"
@@ -39,8 +42,18 @@
     background_color = "#eee8d5"
     background_image = None
     cursor_color = "#002b36"
-    font = Fira Mono 11
+    font = Source Code Pro Medium 12
     foreground_color = "#002b36"
     palette = "#073642:#dc322f:#859900:#fdf6e3:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scrollbar_position = hidden
     use_system_font = False
+
+  # Color scheme configuration for Terminator terminal emulator (http://www.tenshu.net/terminator/ and https://launchpad.net/terminator)
+#
+# Copy the following lines within the [profiles] section of terminator configuration file at ~/.config/terminator/config
+
+[[Oceanic]]
+  use_theme_colors = False
+  background_color = "#0f1e3d"
+  foreground_color = "#d8eae1"
+  palette = "#110c27:#ba7373:#73ba73:#baba73:#7373ba:#ba73ba:#73baba:#bfbad4:#302b45:#e9d2d2:#d2e9d2:#e9e9d2:#d2d2e9:#e9d2e9:#d2e9e9:#ddd8f3"
