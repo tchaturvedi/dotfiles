@@ -26,5 +26,7 @@ zplug 'denysdovhan/spaceship-zsh-theme', as:theme
 # Then, source plugins and add commands to $PATH
 zplug load
 
+source $ZSHA_BASE/config/spaceship
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
