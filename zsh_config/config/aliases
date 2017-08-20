@@ -7,3 +7,4 @@ alias pip=pip3
 
 alias gobi="go build && go install"
 alias cdgo="cd ~/Workspace/personal/go/src/github.com/tchaturvedi"
+alias hc='herbstclient'

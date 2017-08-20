@@ -4,6 +4,7 @@ export PROJECT_HOME="~/Workspace/personal/py"
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 export TERM=xterm-256color
+export TERMINAL=gnome-terminal
 
 # RVM
 #source /home/tushar/.rvm/scripts/rvm
