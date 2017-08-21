@@ -2,15 +2,20 @@ export ZSHA_BASE=$HOME/.dotfiles/zsh_config
 
 ZPLUG_HOME=$ZSHA_BASE/zplug
 
+# Install zplug if not installed
 if [[ ! -d $ZPLUG_HOME ]]; then
   git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
+# Install vim-plug if not installed
+if [[ ! -d ~/.local/share/nvim ]]; then
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 source $ZSHA_BASE/config/aliases
 source $ZSHA_BASE/config/env_variables
 source $ZSHA_BASE/config/setopts
 source $ZSHA_BASE/config/omz_config
-
 source $ZPLUG_HOME/init.zsh
 
 # Allow zplug self management
@@ -27,8 +32,3 @@ zplug 'denysdovhan/spaceship-zsh-theme', as:theme
 zplug load
 
 source $ZSHA_BASE/config/spaceship
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-
