@@ -6,3 +6,5 @@ CASE_SENSITIVE='false'
 plugins=(common-aliases ubuntu git)
 
 source $ZSH/oh-my-zsh.sh
+
+source ~/.fonts/FA/*.sh
