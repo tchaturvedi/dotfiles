@@ -19,7 +19,7 @@ font-0 = MesloLGL Nerd Font:size=10:antialias=true;
 font-1 = FontAwesome:size=10:;-1
 
 modules-left = date1 volume wireless-network battery 
-modules-center = previous playpause spotipy next
+modules-center = previous spotipy next
 modules-right = hlws powermenu
 
 tray-position = off 
@@ -82,11 +82,11 @@ ramp-volume-2 =
 format-volume-foreground = #eeeeee
 
 label-muted = 
-
+interval = 1
 ; ---------------------------------
 [module/date1]
 type = internal/date
-interval = 1
+interval = 60
 date = " %I:%M"
 format-prefix = 
 
@@ -138,9 +138,9 @@ menu-3-1-exec = menu-open-0
 [module/hlws]
 type = custom/script
 exec = python3 ~/.config/polybar/scripts/hlws.py
-scroll-down = exec herbstclient use_index +1
-scroll-up = exec herbstclient use_index -1
-interval = 0.01
+;scroll-down = exec herbstclient use_index +1
+;scroll-up = exec herbstclient use_index -1
+interval = 1
 
 ; ---------------------------------
 [module/previous]
@@ -148,6 +148,7 @@ type = custom/script
 format-text = <label>
 label =  
 exec = echo label
+exec-if = pgrep spotify > /dev/null
 click-left = exec playerctl previous
 format-foreground = #eeeeee
 
@@ -156,6 +157,7 @@ type = custom/script
 format-text = <label>
 label = 
 exec = echo label
+exec-if = pgrep spotify > /dev/null
 click-left = exec playerctl next
 format-foreground = #eeeeee
 
@@ -163,19 +165,20 @@ format-foreground = #eeeeee
 type = custom/script
 exec =  python3 ~/.config/polybar/scripts/spoti.py
 exec-if = pgrep spotify > /dev/null
-interval = 0.01
+interval = 1
 click-left = playerctl -p spotify play-pause
 
 [module/playpause]
 type = custom/script
 exec = python3 ~/.config/polybar/scripts/playpause.py
-interval = 0.01
+exec-if = psgrep spotify > /dev/null
+interval = 1
 click-left = playerctl -p spotify play-pause
 
 ; ---------------------------------
 [module/cpu]
 type = internal/cpu
-label =  %percentage-core1%%
+label = CPU %percentage-core1%%
 
 ; ---------------------------------
 [module/weather]
@@ -204,7 +207,7 @@ format-disconnected = <label-disconnected>
 ;   <label-connected> (default)
 ;   <label-packetloss>
 ;   <animation-packetloss>
-format-packetloss = <animation-packetloss> <label-connected>
+; format-packetloss = <animation-packetloss> <label-connected>
 
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
@@ -272,7 +275,7 @@ adapter = ADP1
 ; Disable polling by setting the interval to 0.
 ;
 ; Default: 5
-poll-interval = 5
+poll-interval = 0
 
 ; see "man date" for details on how to format the time string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
@@ -284,7 +287,7 @@ time-format = %H:%M
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-charging>
-format-charging = <animation-charging><label-charging>
+format-charging = <ramp-capacity><label-charging>
 
 ; Available tags:
 ;   <label-discharging> (default)
@@ -296,7 +299,7 @@ format-discharging = <ramp-capacity><label-discharging>
 ;   <label-full> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
+;format-full = <ramp-capacity><label-full>
 
 ; Available tokens:
 ;   %percentage% (default)
