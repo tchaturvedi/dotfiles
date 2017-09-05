@@ -1,18 +1,23 @@
 export WORKON_HOME="~/.virtualenvs/"
-export PROJECT_HOME="~/Workspace/personal/py"
+export PROJECT_HOME="~/Workspace/py"
 #source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper_lazy.sh
+source $VIRTUALENVWRAPPER_SCRIPT
 export TERM=xterm-256color
-export TERMINAL=gnome-terminal
+#export TERMINAL=gnome-terminal
 
 # RVM
 #source /home/tushar/.rvm/scripts/rvm
 
 # Texlive
-export PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
-export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
+#export PATH=$PATH:/usr/local/go/bin
+
+# Python
+export PYTHONDONTWRITEBYTECODE=1
 
 # Golang
-export GOPATH=~/Workspace/personal/go/
+export GOROOT=~/Applications/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=~/Workspace/go/
 export PATH=$PATH:$GOPATH/bin

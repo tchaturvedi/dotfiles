@@ -13,10 +13,10 @@ rofi.color-urgent: #172020, #ff1844, #172020, #394249, #ff1844
 
 
 ! "Enabled modi" Set from: Default
-rofi.modi:                           window,run,ssh
+rofi.modi: window,run,ssh
 
 ! "Window width" Set from: Default
-rofi.width:                          50
+rofi.width: 50
 
 ! "Number of lines" Set from: Default
 rofi.lines:                          10
@@ -25,7 +25,7 @@ rofi.lines:                          10
 rofi.columns:                        2
 
 ! "Font to use" Set from: Default
-rofi.font:                           MesloLGL Nerd Font 12
+rofi.font: MesloLGL Nerd Font 12
 
 ! "Color scheme for normal row" Set from: Default
 ! rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5

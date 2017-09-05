@@ -1,3 +1,5 @@
+(wal -t -r &)
+
 export ZSHA_BASE=$HOME/.dotfiles/zsh_config
 
 ZPLUG_HOME=$ZSHA_BASE/zplug

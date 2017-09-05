@@ -5,6 +5,7 @@ Plug 'raphamorim/lucario'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dylanaraps/wal' 
 
 " Utilities
 Plug 'vim-scripts/ScrollColors'

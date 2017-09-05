@@ -1,35 +1,36 @@
 [GLOBAL/Wm]
-margin-top = 0
+margin-top = 1
 margin-bottom = 0
 override-redirect = false
 
 [bar/top]
-monitor = eDP-1
+monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 24
 offset-x = 0
 offset-y = 0
 
 locale = en_US.UTF-8
-background = #172030
-foreground = #eeeeee
+foreground = ${xrdb:color6}
+background = ${xrdb:color0}
+; background = #172030
+; foreground = #eeeeee
 
-font-0 = MesloLGL Nerd Font:size=10:antialias=true;
-;font-1 = MaterialIcons-Regular :size=10:;
-font-1 = FontAwesome:size=10:;-1
+font-0 = MesloLGL Nerd Font:size=10:antialias=true;2
+font-1 = FontAwesome:size=10;1
 
-modules-left = date1 volume wireless-network battery 
+modules-right = battery wireless-network volume date 
 modules-center = previous spotipy next
-modules-right = hlws powermenu
+modules-left = i3
 
 tray-position = off 
-tray-padding = 2
+tray-padding = 0
 tray-transparent = false
 tray-detached = false
 tray-background = #172030
 
 spacing = 1 
-padding-left = 1 
+padding-left = 0 
 padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
@@ -73,74 +74,50 @@ bar-empty = ─
 [module/volume]
 type = internal/volume
 
-format-volume = <ramp-volume><label-volume>
+format-volume =<label-volume><ramp-volume>
 module-margin-right = 0
+module-margin-left = 0
 ramp-volume-0 =
 ramp-volume-1 =
 ramp-volume-2 =
 
-format-volume-foreground = #eeeeee
+; format-volume-foreground = #eeeeee
 
 label-muted = 
 interval = 1
+
 ; ---------------------------------
-[module/date1]
+[module/date]
 type = internal/date
-interval = 60
-date = " %I:%M"
-format-prefix = 
 
-; ---------------------------------
-[module/date2]
-type = internal/date
-interval = 5
-date = " %A %b %m"
-format-prefix =
+; Seconds to sleep between updates
+interval = 60.0
 
-; ---------------------------------
-[module/powermenu]
-type = custom/menu
+; See "man date" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %m-%d
 
-label-open =
-label-open-foreground = #e06c75
-label-open-background = #172030
-label-open-padding = 1
-label-close =
-label-close-padding = 1
-label-close-foreground = #e06c75
-label-separator = |
-label-separator-foreground = #666666
+; Optional time format
+time = %H:%M
 
-; ---------------------------------
-menu-0-0 = 
-menu-0-0-exec = menu-open-1
-menu-0-1 = 
-menu-0-1-exec = menu-open-2
-menu-0-2 = 
-menu-0-2-exec = menu-open-3
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
 
-menu-1-0 =  
-menu-1-0-exec = menu-open-0
-menu-1-1 = 
-menu-1-1-exec = systemctl reboot
+; Available tags:
+;   <label> (default)
+format = <label>
+; format-background = #55ff3399
+; format-foreground = #fff
 
-menu-2-0 = 
-menu-2-0-exec = systemctl poweroff
-menu-2-1 = 
-menu-2-1-exec = menu-open-0
-
-menu-3-0 = 
-menu-3-0-exec = herbstclient quit
-menu-3-1 = 
-menu-3-1-exec = menu-open-0
-
-; ---------------------------------
-[module/hlws]
-type = custom/script
-exec = python3 ~/.config/polybar/scripts/hlws.py
-;scroll-down = exec herbstclient use_index +1
-;scroll-up = exec herbstclient use_index -1
-interval = 1
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label =  %date%  %time%
+; label-font = 6
+; label-foreground = #9A32DB
 
 ; ---------------------------------
 [module/previous]
@@ -165,14 +142,14 @@ format-foreground = #eeeeee
 type = custom/script
 exec =  python3 ~/.config/polybar/scripts/spoti.py
 exec-if = pgrep spotify > /dev/null
-interval = 1
+interval = 0.1
 click-left = playerctl -p spotify play-pause
 
 [module/playpause]
 type = custom/script
 exec = python3 ~/.config/polybar/scripts/playpause.py
 exec-if = psgrep spotify > /dev/null
-interval = 1
+interval = 0.1
 click-left = playerctl -p spotify play-pause
 
 ; ---------------------------------
@@ -275,7 +252,7 @@ adapter = ADP1
 ; Disable polling by setting the interval to 0.
 ;
 ; Default: 5
-poll-interval = 0
+poll-intervali = 60
 
 ; see "man date" for details on how to format the time string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
@@ -287,19 +264,19 @@ time-format = %H:%M
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-charging>
-format-charging = <ramp-capacity><label-charging>
+format-charging = <label-charging><ramp-capacity>
 
 ; Available tags:
 ;   <label-discharging> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
-format-discharging = <ramp-capacity><label-discharging>
+format-discharging = <label-discharging><ramp-capacity>
 
 ; Available tags:
 ;   <label-full> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
-;format-full = <ramp-capacity><label-full>
+;format-full = <label-full><ramp-capacity>
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -315,23 +292,127 @@ label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = Fully charged
+label-full = %percentage%
 
 ; Only applies if <ramp-capacity> is used
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 =  
+ramp-capacity-1 =  
+ramp-capacity-2 =  
+ramp-capacity-3 =  
+ramp-capacity-4 =  
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
 
 ; Only applies if <animation-charging> is used
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 =  
 ; Framerate in milliseconds
 animation-charging-framerate = 750
+
+; ---------------
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = false
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction 
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state><label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %index%
+label-focused-foreground = ${bar/top.background}
+label-focused-background = ${bar/top.foreground}
+;label-focused-underline = #fba922
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = ${bar/top.background}
+label-urgent-background = #bd2c40
+label-urgent-padding = 4

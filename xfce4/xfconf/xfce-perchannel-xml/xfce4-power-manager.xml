@@ -11,5 +11,6 @@
     <property name="logind-handle-lid-switch" type="bool" value="true"/>
     <property name="lid-action-on-ac" type="uint" value="1"/>
     <property name="show-tray-icon" type="int" value="1"/>
+    <property name="general-notification" type="bool" value="false"/>
   </property>
 </channel>

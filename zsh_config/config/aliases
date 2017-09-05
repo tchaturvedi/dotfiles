@@ -6,5 +6,5 @@ alias vim=nvim
 alias pip=pip3
 
 alias gobi="go build && go install"
-alias cdgo="cd ~/Workspace/personal/go/src/github.com/tchaturvedi"
+alias cdgo="cd ~/Workspace/go/src/github.com/tchaturvedi"
 alias hc='herbstclient'

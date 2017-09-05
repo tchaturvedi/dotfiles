@@ -2,9 +2,9 @@ set background=dark
 
 syntax enable
 set number
-colorscheme lucario
+colorscheme wal
 
-let g:airline_theme='papercolor'
+let g:airline_theme='wal'
 
 " NERDTree
 "
@@ -14,4 +14,5 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
