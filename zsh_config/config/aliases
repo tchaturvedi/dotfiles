@@ -3,8 +3,7 @@ alias reload="echo 'reloading zshrc' && source ~/.zshrc"
 alias reloadplasma="killall plasmashell; plasmashell > /dev/null 2>&1 & disown"
 alias psgrep="ps -ef | grep"
 alias vim=nvim
-alias pip=pip3
 
 alias gobi="go build && go install"
 alias cdgo="cd ~/Workspace/go/src/github.com/tchaturvedi"
-alias hc='herbstclient'
+alias gowork="cd ~/Workspace/work/"

@@ -1,5 +1,5 @@
-[GLOBAL/Wm]
-margin-top = 1
+[global/wm]
+margin-top = 0
 margin-bottom = 0
 override-redirect = false
 
@@ -7,19 +7,30 @@ override-redirect = false
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 24
-offset-x = 0
-offset-y = 0
+offset-x = 10%
+offset-y = 10%
+radius = 0
 
 locale = en_US.UTF-8
-foreground = ${xrdb:color6}
-background = ${xrdb:color0}
-; background = #172030
-; foreground = #eeeeee
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
+line-size = 10
+line-color = ${xrdb:color0}
+
+border-size = 0
+border-color = #00
+
+border-bottom-size = 0
+border-bottom-color = #00
+
+border-top-size = 0
+border-top-color = #00
+padding = 2
 
 font-0 = MesloLGL Nerd Font:size=10:antialias=true;2
 font-1 = FontAwesome:size=10;1
 
-modules-right = battery wireless-network volume date 
+modules-right = weather volume battery wireless-network customdate customtime 
 modules-center = previous spotipy next
 modules-left = i3
 
@@ -30,8 +41,6 @@ tray-detached = false
 tray-background = #172030
 
 spacing = 1 
-padding-left = 0 
-padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
@@ -73,18 +82,32 @@ bar-empty = ─
 ; ---------------------------------
 [module/volume]
 type = internal/volume
-
-format-volume =<label-volume><ramp-volume>
-module-margin-right = 0
-module-margin-left = 0
-ramp-volume-0 =
-ramp-volume-1 =
-ramp-volume-2 =
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume><label-volume>
+module-margin-right = 1
+module-margin-left = 1
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+ramp-volume-0 = 
 
 ; format-volume-foreground = #eeeeee
-
+format-muted = <ramp-volume><label-muted>
 label-muted = 
 interval = 1
+
+bar-volume-width = 10
+bar-volume-foreground = #aaff77
+bar-volume-indicator = |
+bar-volume-indicator-font = 6
+bar-volume-indicator-font-style = bold
+bar-volume-fill = —
+bar-volume-fill-font = 6
+bar-volume-fill-font-style = bold
+bar-volume-empty = —
+bar-volume-empty-font = 6
 
 ; ---------------------------------
 [module/date]
@@ -102,8 +125,8 @@ time = %H:%M
 
 ; if `date-alt` or `time-alt` is defined, clicking
 ; the module will toggle between formats
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
+;date-alt = %A, %d %B %Y
+;time-alt = %H:%M:%S
 
 ; Available tags:
 ;   <label> (default)
@@ -120,6 +143,22 @@ label =  %date%  %time%
 ; label-foreground = #9A32DB
 
 ; ---------------------------------
+[module/customdate]
+type = custom/script
+format-text = <label>
+label = %output%
+tail = true
+exec = echo  `date +%m-%d`
+click-left = exec gsimplecal
+; ---------------------------------
+[module/customtime]
+type = custom/script
+format-text = <label>
+label = %output%
+tail = true
+exec = echo  `date +%H:%M`
+
+; ---------------------------------
 [module/previous]
 type = custom/script
 format-text = <label>
@@ -127,7 +166,8 @@ label = 
 exec = echo label
 exec-if = pgrep spotify > /dev/null
 click-left = exec playerctl previous
-format-foreground = #eeeeee
+format-padding = 4
+# format-foreground = #eeeeee
 
 [module/next]
 type = custom/script
@@ -136,7 +176,8 @@ label = 
 exec = echo label
 exec-if = pgrep spotify > /dev/null
 click-left = exec playerctl next
-format-foreground = #eeeeee
+format-padding = 4
+# format-foreground = #eeeeee
 
 [module/spotipy]
 type = custom/script
@@ -158,13 +199,13 @@ type = internal/cpu
 label = CPU %percentage-core1%%
 
 ; ---------------------------------
-[module/weather]
-type = custom/script
-interval = 10
-format = <label>
-format-prefix = " "
-format-suffix = "°C"
-exec = python ~/.config/polybar/scripts/weather.py
+# [module/weather]
+# type = custom/script
+# interval = 10
+# format = <label>
+# format-prefix = " "
+# format-suffix = "°C"
+# exec = python ~/.config/polybar/scripts/weather.py
 
 ; ---------------------------------
 [module/wireless-network]
@@ -201,8 +242,8 @@ label-connected-foreground = #eefafafa
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
 ; Default: (none)
-label-disconnected = not connected
-label-disconnected-foreground = #66ffffff
+label-disconnected = 
+label-disconnected-foreground = #AAA
 
 ; Available tokens:
 ;   %ifname%    [wireless+wired]
@@ -264,13 +305,13 @@ time-format = %H:%M
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-charging>
-format-charging = <label-charging><ramp-capacity>
+format-charging = <animation-charging><label-charging>
 
 ; Available tags:
 ;   <label-discharging> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
-format-discharging = <label-discharging><ramp-capacity>
+format-discharging = <ramp-capacity><label-discharging>
 
 ; Available tags:
 ;   <label-full> (default)
@@ -292,7 +333,7 @@ label-discharging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = %percentage%
+label-full =   %percentage%%
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 =  
@@ -332,7 +373,7 @@ strip-wsnumbers = true
 ; Sort the workspaces by index instead of the default
 ; sorting that groups the workspaces by output
 ; Default: false
-index-sort = true
+index-sort = false
 
 ; Create click handler used to focus workspace
 ; Default: true
@@ -359,24 +400,24 @@ fuzzy-match = true
 
 ; ws-icon-[0-9]+ = label;icon
 ; NOTE: The label needs to match the name of the i3 workspace
-ws-icon-0 = 1;♚
-ws-icon-1 = 2;♛
-ws-icon-2 = 3;♜
-ws-icon-3 = 4;♝
-ws-icon-4 = 5;♞
-ws-icon-default = ♟
+ws-icon-0 =workspace 1;
+ws-icon-1 =workspace 2;
+ws-icon-2 =workspace 3;
+ws-icon-3 =workspace 4;
+ws-icon-4 =workspace 5;
+ws-icon-default = 
 
 ; Available tags:
 ;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
 ;   <label-mode> (default)
-format = <label-state><label-mode>
+format = <label-state>
 
 ; Available tokens:
 ;   %mode%
 ; Default: %mode%
 label-mode = %mode%
-label-mode-padding = 2
-label-mode-background = #e60053
+label-mode-padding = 0
+label-mode-background = ${xrdb:color1}
 
 ; Available tokens:
 ;   %name%
@@ -384,35 +425,43 @@ label-mode-background = #e60053
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-focused = %index%
-label-focused-foreground = ${bar/top.background}
-label-focused-background = ${bar/top.foreground}
-;label-focused-underline = #fba922
-label-focused-padding = 4
+label-focused = %icon%
+label-focused-foreground = ${xrdb:color14}
+label-focused-padding = 1
 
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-unfocused = %index%
-label-unfocused-padding = 4
+label-unfocused = %icon%
+label-unfocused-foreground = ${xrdb:foreground}
+label-unfocused-padding = 1
 
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-visible = %index%
-label-visible-underline = #555555
-label-visible-padding = 4
+label-visible = %icon%
+label-visible-foreground = ${xrdb:color1}
+label-visible-padding = 1
 
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-urgent = %index%
-label-urgent-foreground = ${bar/top.background}
-label-urgent-background = #bd2c40
-label-urgent-padding = 4
+label-urgent = %icon%
+label-urgent-foreground = ${xrdb:color1} 
+label-urgent-padding = 1
+
+; ---------------------
+
+[module/weather]
+type = custom/script
+format-prefix = "  "
+format = <label>
+label = %output%
+exec = weather
+interval = 1800

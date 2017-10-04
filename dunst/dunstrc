@@ -153,11 +153,11 @@
     icon_position = off
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/masalla-icon-theme-dark/status/16x16:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = ~/.icons/masalla-icon-theme/status/16x16/:~/.icons/masalla-icon-theme/devices/16x16/
 
 [frame]
     width = 1
-    color = "#333333"
+    color = "#2b2b2b"
 
 [shortcuts]
 
@@ -183,19 +183,19 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222" 
-    foreground = "#eeeeee"
-    timeout = 5
+    background = "#f6f6f6" 
+    foreground = "#2b2b2b"
+    timeout = 3
 
 [urgency_normal]
-    background = "#222222"
-    foreground = "#eeeeee"
-    timeout = 5
+    background = "#f6f6f6"
+    foreground = "#3e999f"
+    timeout = 3
 
 [urgency_critical]
-    background = "#222222"
-    foreground = "#ff00ee"
-    timeout = 5
+    background = "#f6f6f6"
+    foreground = "#8959a8"
+    timeout = 0
 
 
 # Every section that isn't one of the above is interpreted as a rules to

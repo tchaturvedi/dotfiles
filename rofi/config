@@ -1,61 +1,47 @@
-i! Configuration
+! Configuration
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
-! Copyright: Rasmus Steinke
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #172020, #172020, #1e2529
-rofi.color-normal: #172020, #c1c1c1, #172020, #394249, #ffffff
-rofi.color-active: #172020, #80cbc4, #172020, #394249, #80cbc4
-rofi.color-urgent: #172020, #ff1844, #172020, #394249, #ff1844
-
+rofi.color-window: #f6f6f6, #f6f6f6, #2b2b2b
+rofi.color-normal: #f6f6f6, #2b2b2b, #f6f6f6, #3e999f, #f6f6f6
+rofi.color-active: #f6f6f6, #4271ae, #f6f6f6, #4271ae, #f6f6f6
+rofi.color-urgent: #f6f6f6, #d7005f, #f6f6f6, #d7005f, #f6f6f6
 
 
 ! "Enabled modi" Set from: Default
 rofi.modi: window,run,ssh
 
 ! "Window width" Set from: Default
-rofi.width: 50
+rofi.width: 60
 
 ! "Number of lines" Set from: Default
-rofi.lines:                          10
+rofi.lines:                          5
 
 ! "Number of columns" Set from: Default
-rofi.columns:                        2
+rofi.columns:                        1
 
 ! "Font to use" Set from: Default
-rofi.font: MesloLGL Nerd Font 12
-
-! "Color scheme for normal row" Set from: Default
-! rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
-
-! "Color scheme for urgent row" Set from: Default
-! rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
-
-! "Color scheme for active row" Set from: Default
-! rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
-
-! "Color scheme window" Set from: Default
-! rofi.color-window:                   #fdf6e3,#002b36
+rofi.font: MesloLGL Nerd Font 16
 
 ! "Border width" Set from: Default
-rofi.bw:                             1
+rofi.bw:                             5
 
 ! "Location on screen" Set from: Default
 rofi.location:                       0
 
 ! "Padding" Set from: Default
-rofi.padding:                        5
+rofi.padding:                        45
 
 ! "Y-offset relative to location" Set from: Default
-! rofi.yoffset:                        0
+rofi.yoffset:                        -200
 
 ! "X-offset relative to location" Set from: Default
 rofi.xoffset:                        0
 
 ! "Always show number of lines" Set from: Default
-! rofi.fixed-num-lines:                true
+ rofi.fixed-num-lines:                false
 
 ! "Terminal to use" Set from: Default
 rofi.terminal:                       rofi-sensible-terminal
@@ -106,7 +92,7 @@ rofi.terminal:                       rofi-sensible-terminal
 ! rofi.parse-known-hosts:              true
 
 ! "Set the modi to combine in combi mode" Set from: Default
-! rofi.combi-modi:                     window,run
+rofi.combi-modi:                     window,run
 
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
 ! rofi.matching:                       normal
@@ -118,19 +104,19 @@ rofi.terminal:                       rofi-sensible-terminal
 ! rofi.m:                              -5
 
 ! "Margin between rows" Set from: Default
-! rofi.line-margin:                    2
+rofi.line-margin:                    1
 
 ! "Padding within rows" Set from: Default
-! rofi.line-padding:                   1
+rofi.line-padding:                   10
 
 ! "Pre-set filter" Set from: Default
 ! rofi.filter:                         
 
 ! "Separator style (none, dash, solid)" Set from: Default
-! rofi.separator-style:                dash
+rofi.separator-style:                none
 
 ! "Hide scroll-bar" Set from: Default
-! rofi.hide-scrollbar:                 false
+rofi.hide-scrollbar:                 true
 
 ! "Fullscreen" Set from: Default
 ! rofi.fullscreen:                     false

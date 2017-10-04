@@ -1,0 +1,80 @@
+! Paper-color theme
+!
+! special
+*.foreground:   #2b2b2b
+*.background:   #f6f6f6
+*.cursorColor:  #2b2b2b
+
+! black
+*.color0:       #ededed
+*.color8:       #969694
+
+! red
+*.color1:       #d7005f
+*.color9:       #d7005f
+
+! green
+*.color2:       #718c00
+*.color10:      #718c00
+
+! yellow
+*.color3:       #d75f00
+*.color11:      #d75f00
+
+! blue
+*.color4:       #4271ae
+*.color12:      #4271ae
+
+! magenta
+*.color5:       #8959a8
+*.color13:      #8959a8
+
+! cyan
+*.color6:       #3e999f
+*.color14:      #3e999f
+
+! white
+*.color7:       #4d4d4c
+*.color15:      #f5f5f5
+
+! Xft settings ---------------------------------------------------------------
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+! URxvt settings ---------------------------------------------------------------
+
+URxvt.font: xft:MesloLGL Nerd Font:size=15
+URxvt.boldFont: xft:MesloLGL Nerd Font:bold:size=15
+
+!URxvt.intensityStyles: false
+URxvt.letterSpace: -2
+
+! Hide the pointer when typing (no need for unclutter)
+URxvt*pointerBlank: false
+
+URxvt.loginShell: false
+URxvt.utmpInhibit: true
+URxvt.imLocale: en_US-UTF-8
+
+! No extra padding
+URxvt*internalBorder: 15
+URxvt*externalBorder: 15
+URxvt*lineSpace: 0
+
+URxvt*scrollBar: false
+URxvt*saveLines: 12000
+
+! Set urgent hint on a bell
+! Used mostly for irc (weechat/irssi) notifications
+URxvt*urgentOnBell: true
+
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped

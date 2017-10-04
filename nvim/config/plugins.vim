@@ -2,9 +2,18 @@ set background=dark
 
 syntax enable
 set number
-colorscheme wal
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
+set background=light
+colorscheme PaperColor
 
-let g:airline_theme='wal'
+let g:airline_theme='papercolor'
+
 
 " NERDTree
 "

@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/tushar/Workspace/personal/go/src/github.com'
-let g:netrw_dirhist_2='/home/tushar/Workspace/personal/go/src/github.com/tchaturvedi'
-let g:netrw_dirhist_3='/home/tushar/Workspace/personal/go/src/github.com/tchaturvedi/atomizer'
-let g:netrw_dirhist_4='/home/tushar/.dotfiles/nvim'
-let g:netrw_dirhist_5='/home/tushar/.dotfiles'
-let g:netrw_dirhist_6='/home/tushar/.dotfiles/nvim'
+let g:netrw_dirhist_1='/home/cypher/.config'
+let g:netrw_dirhist_2='/home/cypher/.dotfiles/zsh_config/zplug'
+let g:netrw_dirhist_3='/home/cypher/.dotfiles/zsh_config/zplug/repos'
+let g:netrw_dirhist_4='/home/cypher/.dotfiles/zsh_config/zplug/repos/denysdovhan'
+let g:netrw_dirhist_5='/home/cypher/.dotfiles/zsh_config/zplug/repos/denysdovhan/spaceship-zsh-theme'
+let g:netrw_dirhist_6='/home/cypher/.dotfiles/polybar/scripts'

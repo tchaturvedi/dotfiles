@@ -1,0 +1,9 @@
+set colorscheme jungle
+set colorscheme snow
+
+open_with feh
+open_with gpicview
+open_wit google-chrome-unstable
+open_with 
+open_with google-chrome-unstable
+open_with w3m
