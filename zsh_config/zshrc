@@ -8,6 +8,7 @@ ZPLUG_HOME=$ZSHA_BASE/zplug
 if [[ ! -d $ZPLUG_HOME ]]; then
   git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
+
 # Install vim-plug if not installed
 if [[ ! -d ~/.local/share/nvim ]]; then
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

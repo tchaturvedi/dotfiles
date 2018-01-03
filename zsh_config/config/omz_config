@@ -3,7 +3,7 @@ export ZSH=$ZSHA_BASE/zplug/repos/robbyrussell/oh-my-zsh
 
 CASE_SENSITIVE='false'
 
-plugins=(common-aliases git archlinux)
+plugins=(common-aliases git ubuntu)
 
 source $ZSH/oh-my-zsh.sh
 
