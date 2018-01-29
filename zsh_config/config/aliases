@@ -2,8 +2,7 @@ alias omz="vim ~/.zshrc"
 alias reload="echo 'reloading zshrc' && source ~/.zshrc"
 alias reloadplasma="killall plasmashell; plasmashell > /dev/null 2>&1 & disown"
 alias psgrep="ps -ef | grep"
-alias vim=nvim
 
 alias gobi="go build && go install"
-alias cdgo="cd ~/Workspace/go/src/github.com/tchaturvedi"
+alias cdgo="cd $GOPATH/src/github.com/tchaturvedi"
 alias gowork="cd ~/Workspace/work/"

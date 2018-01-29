@@ -1,7 +1,7 @@
 export WORKON_HOME="~/.virtualenvs/"
 export PROJECT_HOME="~/Workspace/py"
 #source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_SCRIPT=~/.local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source $VIRTUALENVWRAPPER_SCRIPT
 
 # Python
@@ -9,13 +9,13 @@ export PYTHONDONTWRITEBYTECODE=1
 export PATH=$PATH:~/.local/bin
 
 # Golang
-export GOROOT=~/Workspace/Applications/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=~/Workspace/personal/go
+#export GOROOT=~/Workspace/Applications/go
+#export PATH=$PATH:$GOROOT/bin
+export GOPATH=~/Personal/go
 export PATH=$PATH:$GOPATH/bin
 
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/Library/Java/Home
 export PATH=$PATH:$JAVA_HOME/bin
 
-export LD_LIBRARY_PATH=$HOME/Workspace/java/voyager-server/test/artifact/Voyager/app/arch/linux_amd64
+export DYLD_LIBRARY_PATH=$HOME/Workspace/projects/voyager-server/test/artifact/Voyager/app/arch/darwin_x86_64
 export PATH=$PATH:$HOME/Workspace/tools/gradle/bin
